@@ -12,7 +12,7 @@ class LocalDocumentRepository:
                 with open(os.path.join(directory, filename), 'r') as f:
                     content = f.read()
                     content_type = mimetypes.guess_type(filename)[0]
-                    document = Document(id=None, title=filename, lastChange=os.path.getmtime(os.path.join(directory, filename)), content=content, content_type=content_type)
+                    document = Document(id=None, title=filename, lastChange=os.path.getmtime(os.path.join(directory, filename)), content_type=content_type, location=f"/documents/{filename}")
                     documents.append(document)
         return documents
 
@@ -23,5 +23,5 @@ class LocalDocumentRepository:
                 with open(os.path.join(directory, filename), 'r') as f:
                     content = f.read()
                     content_type = mimetypes.guess_type(filename)[0]
-                    return Document(id=None, title=filename, lastChange=os.path.getmtime(os.path.join(directory, filename)), content=content, content_type=content_type)
+                    return Document(id=None, title=filename, lastChange=os.path.getmtime(os.path.join(directory, filename)), content=content, content_type=content_type, location=f"/documents/{filename}")
         return None
