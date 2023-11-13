@@ -28,7 +28,7 @@ else:
 document_service = DocumentService(repository)
 
 @app.get("/documents", response_model=List[Document])
-def get_documents(title: str = None):
+def get_documents(title: str):
     return document_service.get_all_documents(title)
 
 @app.get("/documents/{id}", response_model=Document)
