@@ -9,5 +9,5 @@ class DocumentService:
     def get_all_documents(self, title: Optional[str] = None) -> List[Document]:
         return self.repository.get_all_documents(title)
 
-    def get_document_by_id(self, id: int) -> Optional[Document]:
+    def get_document_by_id(self, id: str) -> Optional[Document]:
         return self.repository.get_document_by_id(id)

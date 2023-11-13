@@ -2,7 +2,7 @@ from pydantic import BaseModel
 from datetime import datetime
 
 class Document(BaseModel):
-    id: int
+    id: str
     title: str
     lastChange: datetime
     content: str

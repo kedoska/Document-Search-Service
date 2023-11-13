@@ -14,6 +14,7 @@ This is a FastAPI service for searching documents. It supports two types of docu
     CONFLUENCE_BASE_URL=
     CONFLUENCE_USERNAME=
     CONFLUENCE_TOKEN=
+    DOCUMENT_DIRECTORY=
     ```
 
 ## Running the Service
@@ -24,6 +25,7 @@ If you're using a local document source, run the service with:
 
 ```bash
 export DOCUMENT_SOURCE=local
+export DOCUMENT_DIRECTORY=/path/to/knowledge-base
 python main.py
 ```
 

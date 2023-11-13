@@ -20,7 +20,9 @@ if document_source == "confluence":
     # Initialize the ConfluenceRepository with the environment variables
     repository = ConfluenceRepository(confluence_base_url, confluence_username, confluence_token)
 else:
-    repository = LocalDocumentRepository()
+    # Read the DOCUMENT_DIRECTORY environment variable
+    document_directory = os.getenv("DOCUMENT_DIRECTORY")
+    repository = LocalDocumentRepository(document_directory)
 
 # Initialize the DocumentService with the chosen repository
 document_service = DocumentService(repository)
@@ -30,7 +32,7 @@ def get_documents(title: str = None):
     return document_service.get_all_documents(title)
 
 @app.get("/documents/{id}", response_model=Document)
-def get_document(id: int):
+def get_document(id: str):
     document = document_service.get_document_by_id(id)
     if document:
         return document
